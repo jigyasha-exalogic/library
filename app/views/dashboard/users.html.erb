@@ -1,0 +1,15 @@
+<table>
+     	<thead><th> User Email </th></thead>
+		<tbody>
+			<% @users.each do |f| %>
+				<% unless f.has_role?(:admin) %>
+				<tr>
+					<td><%= f.email%></td>
+					<td><%= link_to "Issue Book", newissue_path(f)%></td>
+					<td><%= link_to "Books Issued", booksissued_path(f) %></td>
+				</tr>
+				<% end %>
+			<% end %>
+		</tbody>
+</table>
+<%= link_to "Home", "/" %>
